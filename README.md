@@ -3,3 +3,13 @@
 17학번 2017312548 강보영
 졸업작품
 
+*****
+
+## 환경설정
+### Python (파이썬) 설치
+
+### Anaconda (아나콘다) 설치
+https://www.anaconda.com/
+
+### PyTorch (파이토치) 설치
+https://pytorch.org/
