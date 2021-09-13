@@ -7,7 +7,6 @@ inputs = torch.Tensor(1, 1, 39, 31)
 print('\nInput Image Shape : {}'.format(inputs.shape))
 
 # Convolution Layer & Max Pooling Layer
-print('\n-------------------------------------------------------------------------------------')
 conv1 = nn.Conv2d(1, 20, 4, padding=0)
 print('\nConvolution Layer1')
 print(conv1)
@@ -37,7 +36,7 @@ print(conv4)
 # Connecting Layers
 print('\n-------------------------------------------------------------------------------------')
 out = conv1(inputs)
-print('\n\nOutput Data Shape of 1st Convolution Layer')
+print('\nOutput Data Shape of 1st Convolution Layer')
 print(out.shape)
 
 out = pool(out)

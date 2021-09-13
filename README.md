@@ -1,11 +1,7 @@
 # CNN Implementation in Verilog
 > Implementation of Convolution Neural Network using Python & Verilog
 
-성균관대학교 소프트웨어학과 & 전자전기공학부
-
-강보영
-
-졸업작품
+성균관대학교 소프트웨어학과 & 전자전기공학부 강보영 졸업작품
 
 ## Environment Setting
 
@@ -24,7 +20,7 @@ https://pytorch.org/
 conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge
 ```
 
-버전확인:
+설치 후 아나콘다 프롬프트에서 버전 확인이 가능합니다.
 
 ```sh
 import torch
