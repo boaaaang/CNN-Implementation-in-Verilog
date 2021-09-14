@@ -53,7 +53,7 @@ class CNN(torch.nn.Module):
         # 7x7x64 inputs -> 10 outputs
         self.fc = torch.nn.Linear(7 * 7 * 64, 10, bias=True)
 
-        # 전결합층 한정으로 가중치 초기화
+        # reset weight
         torch.nn.init.xavier_uniform_(self.fc.weight)
 
     def forward(self, x):
