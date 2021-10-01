@@ -45,7 +45,7 @@ conv_layer_2 conv_layer_2(
 );
 
 
-// Clock generation & read image test file
+// Clock generation & read image text file
 initial begin
   $readmemh("./ref/3_0.txt", pixels);
   #5
