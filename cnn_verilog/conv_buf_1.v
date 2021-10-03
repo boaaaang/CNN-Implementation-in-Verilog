@@ -16,20 +16,20 @@
  *------------------------------------------------------------------*/
  
  module conv_buf_1 #(parameter WIDTH = 28, HEIGHT = 28, DATA_BITS = 8)(
-   input clk;
-   input rst_n;
-   input [DATA_BITS - 1:0] data_in;
+   input clk,
+   input rst_n,
+   input [DATA_BITS - 1:0] data_in,
    output reg [DATA_BITS - 1:0] data_out_0, data_out_1, data_out_2, data_out_3, data_out_4,
    data_out_5, data_out_6, data_out_7, data_out_8, data_out_9,
    data_out_10, data_out_11, data_out_12, data_out_13, data_out_14,
    data_out_15, data_out_16, data_out_17, data_out_18, data_out_19,
-   data_out_20, data_out_21, data_out_22, data_out_23, data_out_24;
-   output reg valid_out_buf;
+   data_out_20, data_out_21, data_out_22, data_out_23, data_out_24,
+   output reg valid_out_buf
  );
 
  localparam FILTER_SIZE = 5;
 
- reg [DATA_BITS - 1:0] input_buffer [0 : WIDTH * FILTER_SIZE - 1];
+ reg [DATA_BITS - 1:0] buffer [0 : WIDTH * FILTER_SIZE - 1];
  reg [DATA_BITS - 1:0] buf_idx;
  reg [4:0] w_idx, h_idx;
  reg [2:0] buf_flag;  // 0 ~ 4
@@ -49,7 +49,7 @@
      buf_idx <= 0;
    end
    
-   input_buffer[buf_idx] <= data_in;  // data input
+   buffer[buf_idx] <= data_in;  // data input
    buf_idx <= buf_idx + 1'b1;
 
    // Wait until first 140 input data
@@ -64,7 +64,7 @@
        valid_out_buf <= 1'b0; // unvalid area
      end else if(w_idx == WIDTH - 1) begin
 
-       if(buf_flag == KERNEL_SIZE - 1) begin
+       if(buf_flag == FILTER_SIZE - 1) begin
          buf_flag <= 0;
        end else begin
          buf_flag <= buf_flag + 1'b1;
@@ -238,3 +238,5 @@
    end
 
  end
+endmodule
+

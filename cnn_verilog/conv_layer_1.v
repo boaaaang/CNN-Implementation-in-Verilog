@@ -17,11 +17,11 @@
  *------------------------------------------------------------------*/
  
  module conv_layer_1 (
-   input clk;
-   input rst_n;
-   input [7:0] data_in;
-   output [11:0] conv_out_1, conv_out_2, conv_out_3;
-   output valid_out_conv;
+   input clk,
+   input rst_n,
+   input [7:0] data_in,
+   output [11:0] conv_out_1, conv_out_2, conv_out_3,
+   output reg valid_out_conv
  );
 
  wire [7:0] data_out_0, data_out_1, data_out_2, data_out_3, data_out_4,
