@@ -29,7 +29,7 @@ wire signed [11:0] conv2_out_1, conv2_out_2, conv2_out_3;
 wire valid_out_layer_1, valid_out_layer_2;
 
 // Module Instantiation
-conv_layer_1 conv_layer_1(
+conv1_layer conv1_layer(
   .clk(clk),
   .rst_n(rst_n);
   .data_in(data_in);
@@ -40,7 +40,7 @@ conv_layer_1 conv_layer_1(
 );
 
 
-conv_layer_2 conv_layer_2(
+conv2_layer conv2_layer(
   .rst_n(rst_n),
 );
 
