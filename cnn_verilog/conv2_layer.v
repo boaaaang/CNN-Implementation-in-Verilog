@@ -19,7 +19,7 @@
  module conv_layer_2 (
    input clk,
    input rst_n,
-   input data_in,
+   input valid_in,
    input [11:0] max_value_1, max_value_2, max_value3,
    output [11:0] conv2_out_1, conv2_out_2, conv2_out_3,
    output reg valid_out_conv2
@@ -62,7 +62,7 @@
  conv2_buf #(.WIDTH(12), .HEIGHT(12), .DATA_BIT(12)) conv2_buf_1(
    .clk(clk),
    .rst_n(rst_n),
-   .data_in(data_in),
+   .valid_in(valid_in),
    .max_value(max_value_1),
    .data_out_0(data_out1_0),
    .data_out_1(data_out1_1),
@@ -95,7 +95,7 @@
  conv2_buf #(.WIDTH(12), .HEIGHT(12), .DATA_BIT(12)) conv2_buf_2(
    .clk(clk),
    .rst_n(rst_n),
-   .data_in(data_in),
+   .valid_in(valid_in),
    .max_value(max_value_2),
    .data_out_0(data_out2_0),
    .data_out_1(data_out2_1),
@@ -128,7 +128,7 @@
  conv2_buf #(.WIDTH(12), .HEIGHT(12), .DATA_BIT(12)) conv2_buf_3(
    .clk(clk),
    .rst_n(rst_n),
-   .data_in(data_in),
+   .valid_in(valid_in),
    .max_value(max_value_3),
    .data_out_0(data_out3_0),
    .data_out_1(data_out3_1),
