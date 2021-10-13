@@ -20,9 +20,35 @@ https://pytorch.org/
 conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge
 ```
 
-설치 후 아나콘다 프롬프트에서 버전 확인이 가능합니다.
+설치 후 아나콘다 프롬프트에서 버전 확인이 가능하다.
 
 ```sh
 import torch
 torch.__version__
 ```
+
+### Modelsim Installment
+https://eda.sw.siemens.com/en-US/modelsim-student-edition-unavailable/
+
+해당 프로젝트는 21.1 버전 환경에서 개발되었다.
+
+## MNIST DataSet Learning using PyTorch
+
+채택한 CNN의 구조는 아래의 2-Layer이며, 파라미터는 아래와 같이 설정하였다.
++ Batch Size = 64
++ Training Epoch = 10
++ Learning Rate = 0.01
++ Optimizer = Stochastical Gradient Descent (Momentum = 0.5)
++ Activation Function = ReLU
+
+![image](https://user-images.githubusercontent.com/43449786/137169852-1a61d97f-dd82-4255-8ed6-f4d1e35e76c8.png)
+
+학습 결과 96.29%의 적중률을 보였다.
+
+![image](https://user-images.githubusercontent.com/43449786/137170572-42f53f74-4a5c-482a-86f2-8933a9994bf7.png)
+
+## Verilog Design
+
+### Block Diagram
+![image](https://user-images.githubusercontent.com/43449786/137170675-ee2119db-1ba4-4d9c-884d-f646986b02ad.png)
+
