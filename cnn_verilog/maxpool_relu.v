@@ -5,14 +5,12 @@
  *
  *  File name  : maxpool_relu.v
  *  Written by : Kang, Bo Young
- *  Written on : Sep 30, 2021
+ *  Written on : Oct 13, 2021
  *  Version    : 21.1
  *  Design     : (1) MaxPooling for CNN
  *							 (2) Activation Function for CNN - ReLU Function
  *
  *------------------------------------------------------------------------*/
-
-`timescale 1ns/1ns
 
 /*-------------------------------------------------------------------
  *  Module: maxpool_relu
