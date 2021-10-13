@@ -41,7 +41,7 @@ https://eda.sw.siemens.com/en-US/modelsim-student-edition-unavailable/
 + Optimizer = Stochastical Gradient Descent (Momentum = 0.5)
 + Activation Function = ReLU
 
-![image](https://user-images.githubusercontent.com/43449786/137169852-1a61d97f-dd82-4255-8ed6-f4d1e35e76c8.png)
+![image](https://user-images.githubusercontent.com/43449786/137171059-f6d9abc2-dd1f-4d81-a812-ed5cde8c7274.png)
 
 학습 결과 96.29%의 적중률을 보였다.
 
@@ -50,5 +50,6 @@ https://eda.sw.siemens.com/en-US/modelsim-student-edition-unavailable/
 ## Verilog Design
 
 ### Block Diagram
-![image](https://user-images.githubusercontent.com/43449786/137170675-ee2119db-1ba4-4d9c-884d-f646986b02ad.png)
+![image](https://user-images.githubusercontent.com/43449786/137170969-66a50f9b-7281-498e-aee0-661c4b637e04.png)
+
 
