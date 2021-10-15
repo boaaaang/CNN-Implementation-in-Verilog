@@ -2,20 +2,20 @@
  *
  *  Copyright (c) 2021 by Bo Young Kang, All rights reserved.
  *
- *  File name  : conv2_calc_1.v
+ *  File name  : conv2_calc_3.v
  *  Written by : Kang, Bo Young
  *  Written on : Oct 14, 2021
- *  Version    : 21.1
+ *  Version    : 21.2
  *  Design     : 2nd Convolution Layer for CNN MNIST dataset
  *               Convolution Sum Calculation - 1st Channel
  *
  *------------------------------------------------------------------------*/
 
 /*-------------------------------------------------------------------
- *  Module: conv2_calc_1
+ *  Module: conv2_calc_3
  *------------------------------------------------------------------*/
  
- module conv2_calc_1 #(parameter WIDTH = 28, HEIGHT = 28, DATA_BITS = 8)(
+ module conv2_calc_3 #(parameter WIDTH = 28, HEIGHT = 28, DATA_BITS = 8)(
    input clk,
    input rst_n,
    input valid_out_buf,

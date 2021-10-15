@@ -5,7 +5,7 @@
  *  File name  : conv2_calc_1.v
  *  Written by : Kang, Bo Young
  *  Written on : Oct 14, 2021
- *  Version    : 21.1
+ *  Version    : 21.2
  *  Design     : 2nd Convolution Layer for CNN MNIST dataset
  *               Convolution Sum Calculation - 1st Channel
  *

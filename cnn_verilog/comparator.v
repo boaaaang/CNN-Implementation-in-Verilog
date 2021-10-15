@@ -5,7 +5,7 @@
  *  File name  : comparator.v
  *  Written by : Kang, Bo Young
  *  Written on : Oct 13, 2021
- *  Version    : 21.1
+ *  Version    : 21.2
  *  Design     : Final Comparator for decision
  *
  *------------------------------------------------------------------------*/

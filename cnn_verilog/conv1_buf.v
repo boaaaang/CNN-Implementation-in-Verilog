@@ -5,7 +5,7 @@
  *  File name  : conv1_buf.v
  *  Written by : Kang, Bo Young
  *  Written on : Sep 30, 2021
- *  Version    : 21.1
+ *  Version    : 21.2
  *  Design     : 1st Convolution Layer for CNN MNIST dataset
  *               Input Buffer
  *

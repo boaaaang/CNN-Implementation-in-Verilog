@@ -2,10 +2,10 @@
  *
  *  Copyright (c) 2021 by Bo Young Kang, All rights reserved.
  *
- *  File name  : conv_layer_2.v
+ *  File name  : conv2_layer.v
  *  Written by : Kang, Bo Young
  *  Written on : Oct 11, 2021
- *  Version    : 21.1
+ *  Version    : 21.2
  *  Design     : 2nd Convolution Layer for CNN MNIST dataset
  *
  *------------------------------------------------------------------------*/
@@ -13,10 +13,10 @@
 `timescale 1ns/1ns
 
 /*-------------------------------------------------------------------
- *  Module: conv_layer_2
+ *  Module: conv2_layer
  *------------------------------------------------------------------*/
  
- module conv_layer_2 (
+ module conv2_layer (
    input clk,
    input rst_n,
    input valid_in,
@@ -59,7 +59,7 @@
  reg signed [7:0] bias [0:CHANNEL_LEN - 1];
  wire signed [11:0] exp_bias [0:CHANNEL_LEN - 1];
 
- conv2_buf #(.WIDTH(12), .HEIGHT(12), .DATA_BIT(12)) conv2_buf_1(
+ conv2_buf #(.WIDTH(12), .HEIGHT(12), .DATA_BITS(12)) conv2_buf_1(
    .clk(clk),
    .rst_n(rst_n),
    .valid_in(valid_in),
@@ -92,7 +92,7 @@
    .valid_out_buf(valid_out1_buf)
  );
 
- conv2_buf #(.WIDTH(12), .HEIGHT(12), .DATA_BIT(12)) conv2_buf_2(
+ conv2_buf #(.WIDTH(12), .HEIGHT(12), .DATA_BITS  (12)) conv2_buf_2(
    .clk(clk),
    .rst_n(rst_n),
    .valid_in(valid_in),
@@ -125,7 +125,7 @@
    .valid_out_buf(valid_out2_buf)
  );
 
- conv2_buf #(.WIDTH(12), .HEIGHT(12), .DATA_BIT(12)) conv2_buf_3(
+ conv2_buf #(.WIDTH(12), .HEIGHT(12), .DATA_BITS(12)) conv2_buf_3(
    .clk(clk),
    .rst_n(rst_n),
    .valid_in(valid_in),

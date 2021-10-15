@@ -6,7 +6,7 @@
  *  File name  : maxpool_relu.v
  *  Written by : Kang, Bo Young
  *  Written on : Oct 13, 2021
- *  Version    : 21.1
+ *  Version    : 21.2
  *  Design     : (1) MaxPooling for CNN
  *							 (2) Activation Function for CNN - ReLU Function
  *
@@ -22,7 +22,7 @@ module maxpool_relu #(parameter CONV_BIT = 12, HALF_WIDTH = 12, HALF_HEIGHT = 12
 	input valid_in,
 	input signed [CONV_BIT - 1 : 0] conv_out_1, conv_out_2, conv_out_3,
 	output reg [CONV_BIT - 1 : 0] max_value_1, max_value_2, max_value_3,
-	output reg valid_out
+	output reg valid_out_relu
 );
 
 reg signed [CONV_BIT - 1:0] buffer1 [0:HALF_WIDTH - 1];
@@ -35,7 +35,7 @@ reg flag;
 
 always @(posedge clk) begin
 	if(~rst_n) begin
-		valid_out <= 0;
+		valid_out_relu <= 0;
 		pcount <= 0;
 		state <= 0;
 		flag <= 0;
@@ -52,7 +52,7 @@ always @(posedge clk) begin
 		end
 
 		if(state == 0) begin	// first line
-			valid_out <= 0;
+			valid_out_relu <= 0;
 			if(flag == 0) begin	// first input
 				buffer1[pcount] <= conv_out_1;
 				buffer2[pcount] <= conv_out_2;
@@ -67,7 +67,7 @@ always @(posedge clk) begin
 			end
 		end else begin	// second line
 			if(flag == 0) begin	// third input -> comparison
-				valid_out <= 0;
+				valid_out_relu <= 0;
 				if(buffer1[pcount] < conv_out_1)
 				  buffer1[pcount] <= conv_out_1;
 				if(buffer2[pcount] < conv_out_2)
@@ -75,7 +75,7 @@ always @(posedge clk) begin
 			  if(buffer3[pcount] < conv_out_3)
 				  buffer3[pcount] <= conv_out_3;
 			end else begin	// fourth input -> comparison + relu
-				valid_out <= 1;
+				valid_out_relu <= 1;
 				if(buffer1[pcount] < conv_out_1) begin
 					if(conv_out_1 > 0) begin
 						max_value_1 <= conv_out_1;
@@ -121,7 +121,7 @@ always @(posedge clk) begin
 		end		
 	end
 	end else begin
-		valid_out <= 0;
+		valid_out_relu <= 0;
 	end
 end
 endmodule

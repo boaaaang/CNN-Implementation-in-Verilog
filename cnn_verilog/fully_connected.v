@@ -5,7 +5,7 @@
  *  File name  : fully_connected.v
  *  Written by : Kang, Bo Young
  *  Written on : Oct 13, 2021
- *  Version    : 21.1
+ *  Version    : 21.2
  *  Design     : Fully Connected Layer for CNN
  *
  *------------------------------------------------------------------------*/
@@ -20,7 +20,7 @@
    input valid_in,
    input signed [11:0] data_in_1, data_in_2, data_in_3,
    output reg [11:0] data_out,
-   output reg valid_out
+   output reg valid_out_fc
  );
 
  localparam INPUT_WIDTH = 16;
@@ -47,14 +47,14 @@
  
  always @(posedge clk) begin
    if(~rst_n) begin
-     valid_out <= 0;
+     valid_out_fc <= 0;
      buf_idx <= 0;
      out_idx <= 0;
      state <= 0;
    end
 
-   if(valid_out == 1) begin
-     valid_out <= 0;
+   if(valid_out_fc == 1) begin
+     valid_out_fc <= 0;
    end
 
    if(valid_in == 1) begin
@@ -67,14 +67,14 @@
        if(buf_idx == INPUT_WIDTH - 1) begin
          buf_idx <= 0;
          state <= 1;
-         valid_out <= 1;
+         valid_out_fc <= 1;
        end
      end else begin // valid state
        out_idx <= out_idx + 1'b1;
        if(out_idx == OUTPUT_NUM - 1) begin
          out_idx <= 0;
        end
-       valid_out <= 1;
+       valid_out_fc <= 1;
      end
    end
  end

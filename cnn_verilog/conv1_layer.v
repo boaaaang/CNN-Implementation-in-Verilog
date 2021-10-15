@@ -5,7 +5,7 @@
  *  File name  : conv1_layer.v
  *  Written by : Kang, Bo Young
  *  Written on : Sep 30, 2021
- *  Version    : 21.1
+ *  Version    : 21.2
  *  Design     : 1st Convolution Layer for CNN MNIST dataset
  *
  *------------------------------------------------------------------------*/
@@ -21,7 +21,7 @@
    input rst_n,
    input [7:0] data_in,
    output [11:0] conv_out_1, conv_out_2, conv_out_3,
-   output reg valid_out_conv
+   output valid_out_conv
  );
 
  wire [7:0] data_out_0, data_out_1, data_out_2, data_out_3, data_out_4,
