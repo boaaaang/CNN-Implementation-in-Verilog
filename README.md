@@ -30,7 +30,7 @@ torch.__version__
 ### Modelsim Installment
 https://eda.sw.siemens.com/en-US/modelsim-student-edition-unavailable/
 
-해당 프로젝트는 21.1 버전 환경에서 개발되었다.
+해당 프로젝트는 21.2 버전 환경에서 개발되었다.
 
 ## MNIST DataSet Learning using PyTorch
 
