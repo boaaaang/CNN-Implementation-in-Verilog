@@ -63,7 +63,7 @@ conv2_layer conv2_layer(
   .valid_in(valid_out_2),
   .max_value_1(max_value_1),
   .max_value_2(max_value_2),
-  .max_value_3(max_Value_3),
+  .max_value_3(max_value_3),
   .conv2_out_1(conv2_out_1),
   .conv2_out_2(conv2_out_2),
   .conv2_out_3(conv2_out_3),
@@ -91,7 +91,7 @@ fully_connected(
   .valid_in(valid_out_4),
   .data_in_1(max2_value_1),
   .data_in_2(max2_value_2),
-  .data_in_3(max2_vaue_3),
+  .data_in_3(max2_value_3),
   .data_out(fc_out_data),
   .valid_out_fc(valid_out_5)
 );
@@ -107,7 +107,7 @@ comparator comparator(
 
 // Clock generation & read image text file
 initial begin
-  $readmemh("./ref/3_0.txt", pixels);
+  $readmemh("3_0.txt", pixels);
   #5
   clk <= 1'b0;
   rst_n <= 1'b1;

@@ -20,7 +20,7 @@
    input clk,
    input rst_n,
    input valid_in,
-   input [11:0] max_value_1, max_value_2, max_value3,
+   input [11:0] max_value_1, max_value_2, max_value_3,
    output [11:0] conv2_out_1, conv2_out_2, conv2_out_3,
    output reg valid_out_conv2
  );
@@ -63,7 +63,7 @@
    .clk(clk),
    .rst_n(rst_n),
    .valid_in(valid_in),
-   .max_value(max_value_1),
+   .data_in(max_value_1),
    .data_out_0(data_out1_0),
    .data_out_1(data_out1_1),
    .data_out_2(data_out1_2),
@@ -96,7 +96,7 @@
    .clk(clk),
    .rst_n(rst_n),
    .valid_in(valid_in),
-   .max_value(max_value_2),
+   .data_in(max_value_2),
    .data_out_0(data_out2_0),
    .data_out_1(data_out2_1),
    .data_out_2(data_out2_2),
@@ -129,7 +129,7 @@
    .clk(clk),
    .rst_n(rst_n),
    .valid_in(valid_in),
-   .max_value(max_value_3),
+   .data_in(max_value_3),
    .data_out_0(data_out3_0),
    .data_out_1(data_out3_1),
    .data_out_2(data_out3_2),
@@ -241,7 +241,7 @@
    .data_out3_23(data_out3_23),
    .data_out3_24(data_out3_24),
 
-   .conv_out(conv_out_1),
+   .conv_out_calc(conv_out_1),
    .valid_out_calc(valid_out_calc_1)
  );
 
@@ -328,7 +328,7 @@
    .data_out3_23(data_out3_23),
    .data_out3_24(data_out3_24),
 
-   .conv_out(conv_out_2),
+   .conv_out_calc(conv_out_2),
    .valid_out_calc(valid_out_calc_2)
  );
 
@@ -415,7 +415,7 @@
    .data_out3_23(data_out3_23),
    .data_out3_24(data_out3_24),
 
-   .conv_out(conv_out_3),
+   .conv_out_calc(conv_out_3),
    .valid_out_calc(valid_out_calc_3)
  );
 
