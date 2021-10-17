@@ -39,7 +39,7 @@ always @(posedge clk) begin
 		pcount <= 0;
 		state <= 0;
 		flag <= 0;
-	end
+	end else begin
 
 	if(valid_in == 1'b1) begin
 		flag <= ~flag;
@@ -123,5 +123,6 @@ always @(posedge clk) begin
 	end else begin
 		valid_out_relu <= 0;
 	end
+end
 end
 endmodule

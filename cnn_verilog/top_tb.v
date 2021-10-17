@@ -10,8 +10,6 @@
  *
  *------------------------------------------------------------------------*/
 
-`timescale 1ns/1ns
-
 /*-------------------------------------------------------------------
  *  Module: top_tb
  *------------------------------------------------------------------*/
@@ -105,27 +103,29 @@ comparator comparator(
   .valid_out(valid_out_6)
 );
 
-// Clock generation & read image text file
+// Clock generation
+always #5 clk = ~clk;
+
+// Read image text file
 initial begin
   $readmemh("3_0.txt", pixels);
-  #5
   clk <= 1'b0;
   rst_n <= 1'b1;
-  forever begin
-    # 5 clk = ~clk;
-  end
+  #3
+  rst_n <= 1'b0;
+  #3
+  rst_n <= 1'b1;
 end
 
 always @(posedge clk) begin
   if(~rst_n) begin
     img_idx <= 0;
-  end
-
-  if(img_idx < 10'd784) begin
+  end else begin
+    if(img_idx < 10'd784) begin
+      img_idx <= img_idx + 1'b1;
+    end
     data_in <= pixels[img_idx];
-    img_idx <= img_idx + 1'b1;
   end
-
 end
 
 endmodule

@@ -76,12 +76,12 @@
 
  assign calc_out = calc_out_1 + calc_out_2 + calc_out_3;
 
- assign conv_out = calc_out[19:6];
+ assign conv_out_calc = calc_out[19:6];
 
  always @(posedge clk) begin
    if(~rst_n) begin
      valid_out_calc <= 0;
-   end
+   end else begin
 
    if(valid_out_buf == 1) begin
      if(valid_out_calc == 1) begin
@@ -89,6 +89,7 @@
      end else begin
        valid_out_calc <= 1;
      end
+   end
    end
  end
 

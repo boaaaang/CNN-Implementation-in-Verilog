@@ -43,15 +43,14 @@
      buf_flag <= 0;
      state <= 0;
      valid_out_buf <= 0;
-   end
-
+   end else begin
    if(valid_in) begin
+     buf_idx <= buf_idx + 1'b1;
      if(buf_idx == WIDTH * FILTER_SIZE - 1) begin // buffer size = 140 = 28(w) * 5(h)
        buf_idx <= 0;
      end
 
      buffer[buf_idx] <= data_in;  // data input
-     buf_idx <= buf_idx + 1'b1;
 
      // Wait until first 140 input data filled in buffer
      if(!state) begin
@@ -63,20 +62,19 @@
 
       if(w_idx == WIDTH - FILTER_SIZE + 1) begin
         valid_out_buf <= 1'b0;  // unvalid area
-      end else if(w_idx == WIDTH - 1)begin
+      end else if(w_idx == WIDTH - 1) begin
+        buf_flag <= buf_flag + 1;
         if(buf_flag == FILTER_SIZE - 1) begin
           buf_flag <= 0;
-        end else begin
-          buf_flag <= buf_flag + 1'b1;
         end
+
         w_idx <= 0;
 
         if(h_idx == HEIGHT - FILTER_SIZE) begin // done 1 input read -> 28 * 28
           h_idx <= 0;
           state <= 0;
-        end else begin
-          h_idx <= h_idx + 1;
         end
+          h_idx <= h_idx + 1;
 
       end else if(w_idx == 0) begin
         valid_out_buf <= 1'b1;  // start valid area
@@ -224,9 +222,9 @@
 
        data_out_15 <= buffer[w_idx + WIDTH * 2];
        data_out_16 <= buffer[w_idx + 1 + WIDTH * 2];
-       data_out_17 <= buffer[w_idx + 1 + WIDTH * 2];
-       data_out_18 <= buffer[w_idx + 1 + WIDTH * 2];
-       data_out_19 <= buffer[w_idx + 1 + WIDTH * 2];
+       data_out_17 <= buffer[w_idx + 2 + WIDTH * 2];
+       data_out_18 <= buffer[w_idx + 3 + WIDTH * 2];
+       data_out_19 <= buffer[w_idx + 4 + WIDTH * 2];
 
        data_out_20 <= buffer[w_idx + WIDTH * 3];
        data_out_21 <= buffer[w_idx + 1 + WIDTH * 3];
@@ -237,5 +235,5 @@
      end
    end
  end
-
+ end
 endmodule
