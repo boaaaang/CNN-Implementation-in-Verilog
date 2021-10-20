@@ -24,7 +24,25 @@
  );
 
  localparam CHANNEL_LEN = 3;
-
+ ///////////////////////////////////////////
+  /*wire [11:0] out_data1_0, out_data1_1, out_data1_2, out_data1_3, out_data1_4,
+			out_data1_5, out_data1_6, out_data1_7, out_data1_8, out_data1_9,
+			out_data1_10, out_data1_11, out_data1_12, out_data1_13, out_data1_14,
+			out_data1_15, out_data1_16, out_data1_17, out_data1_18, out_data1_19,
+			out_data1_20, out_data1_21, out_data1_22, out_data1_23, out_data1_24,
+			
+			out_data2_0, out_data2_1, out_data2_2, out_data2_3, out_data2_4,
+			out_data2_5, out_data2_6, out_data2_7, out_data2_8, out_data2_9,
+			out_data2_10, out_data2_11, out_data2_12, out_data2_13, out_data2_14,
+			out_data2_15, out_data2_16, out_data2_17, out_data2_18, out_data2_19,
+			out_data2_20, out_data2_21, out_data2_22, out_data2_23, out_data2_24,
+			
+			out_data3_0, out_data3_1, out_data3_2, out_data3_3, out_data3_4,
+			out_data3_5, out_data3_6, out_data3_7, out_data3_8, out_data3_9,
+			out_data3_10, out_data3_11, out_data3_12, out_data3_13, out_data3_14,
+			out_data3_15, out_data3_16, out_data3_17, out_data3_18, out_data3_19,
+			out_data3_20, out_data3_21, out_data3_22, out_data3_23, out_data3_24;*/
+      /////////////////////////////////
  // Channel 1
  wire [11:0] data_out1_0, data_out1_1, data_out1_2, data_out1_3, data_out1_4,
   data_out1_5, data_out1_6, data_out1_7, data_out1_8, data_out1_9,
@@ -57,7 +75,7 @@
  reg signed [7:0] bias [0:CHANNEL_LEN - 1];
  wire signed [11:0] exp_bias [0:CHANNEL_LEN - 1];
 
- conv2_buf #(.WIDTH(12), .HEIGHT(12), .DATA_BITS(12)) conv2_buf_1(
+conv2_buf #(.WIDTH(12), .HEIGHT(12), .DATA_BITS(12)) conv2_buf_1(
    .clk(clk),
    .rst_n(rst_n),
    .valid_in(valid_in),
@@ -156,11 +174,10 @@
    .valid_out_buf(valid_out3_buf)
  );
 
- conv2_calc_1 conv2_calc_1(
+conv2_calc_1 conv2_calc_1(
    .clk(clk),
    .rst_n(rst_n),
    .valid_out_buf(valid_out_buf),
-
    .data_out1_0(data_out1_0),
    .data_out1_1(data_out1_1),
    .data_out1_2(data_out1_2),
@@ -186,7 +203,6 @@
    .data_out1_22(data_out1_22),
    .data_out1_23(data_out1_23),
    .data_out1_24(data_out1_24),
-
    .data_out2_0(data_out2_0),
    .data_out2_1(data_out2_1),
    .data_out2_2(data_out2_2),
@@ -212,7 +228,6 @@
    .data_out2_22(data_out2_22),
    .data_out2_23(data_out2_23),
    .data_out2_24(data_out2_24),
-
    .data_out3_0(data_out3_0),
    .data_out3_1(data_out3_1),
    .data_out3_2(data_out3_2),
@@ -238,16 +253,14 @@
    .data_out3_22(data_out3_22),
    .data_out3_23(data_out3_23),
    .data_out3_24(data_out3_24),
-
    .conv_out_calc(conv_out_1),
-   .valid_out_calc(valid_out_calc_1)
- );
+   .valid_out_calc(valid_out_calc_1)   
+);
 
-  conv2_calc_2 conv2_calc_2(
+conv2_calc_2 conv2_calc_2(
    .clk(clk),
    .rst_n(rst_n),
    .valid_out_buf(valid_out_buf),
-  
    .data_out1_0(data_out1_0),
    .data_out1_1(data_out1_1),
    .data_out1_2(data_out1_2),
@@ -273,7 +286,6 @@
    .data_out1_22(data_out1_22),
    .data_out1_23(data_out1_23),
    .data_out1_24(data_out1_24),
-
    .data_out2_0(data_out2_0),
    .data_out2_1(data_out2_1),
    .data_out2_2(data_out2_2),
@@ -299,7 +311,6 @@
    .data_out2_22(data_out2_22),
    .data_out2_23(data_out2_23),
    .data_out2_24(data_out2_24),
-
    .data_out3_0(data_out3_0),
    .data_out3_1(data_out3_1),
    .data_out3_2(data_out3_2),
@@ -325,16 +336,14 @@
    .data_out3_22(data_out3_22),
    .data_out3_23(data_out3_23),
    .data_out3_24(data_out3_24),
-
    .conv_out_calc(conv_out_2),
-   .valid_out_calc(valid_out_calc_2)
- );
+   .valid_out_calc(valid_out_calc_2)   
+);
 
- conv2_calc_3 conv2_calc_3(
+conv2_calc_3 conv2_calc_3(
    .clk(clk),
    .rst_n(rst_n),
    .valid_out_buf(valid_out_buf),
-
    .data_out1_0(data_out1_0),
    .data_out1_1(data_out1_1),
    .data_out1_2(data_out1_2),
@@ -360,7 +369,6 @@
    .data_out1_22(data_out1_22),
    .data_out1_23(data_out1_23),
    .data_out1_24(data_out1_24),
-
    .data_out2_0(data_out2_0),
    .data_out2_1(data_out2_1),
    .data_out2_2(data_out2_2),
@@ -386,7 +394,6 @@
    .data_out2_22(data_out2_22),
    .data_out2_23(data_out2_23),
    .data_out2_24(data_out2_24),
-
    .data_out3_0(data_out3_0),
    .data_out3_1(data_out3_1),
    .data_out3_2(data_out3_2),
@@ -412,10 +419,9 @@
    .data_out3_22(data_out3_22),
    .data_out3_23(data_out3_23),
    .data_out3_24(data_out3_24),
-
    .conv_out_calc(conv_out_3),
-   .valid_out_calc(valid_out_calc_3)
- );
+   .valid_out_calc(valid_out_calc_3)   
+);
 
  initial begin
    $readmemh("conv2_bias.txt", bias);
