@@ -43,6 +43,31 @@
      buf_flag <= 0;
      state <= 0;
      valid_out_buf <= 0;
+     data_out_0 <= 12'bx;
+     data_out_1 <= 12'bx;
+     data_out_2 <= 12'bx;
+     data_out_3 <= 12'bx;
+     data_out_4 <= 12'bx;
+     data_out_5 <= 12'bx;
+     data_out_6 <= 12'bx;
+     data_out_7 <= 12'bx;
+     data_out_8 <= 12'bx;
+     data_out_9 <= 12'bx;
+     data_out_10 <= 12'bx;
+     data_out_11 <= 12'bx;
+     data_out_12 <= 12'bx;
+     data_out_13 <= 12'bx;
+     data_out_14 <= 12'bx;
+     data_out_15 <= 12'bx;
+     data_out_16 <= 12'bx;
+     data_out_17 <= 12'bx;
+     data_out_18 <= 12'bx;
+     data_out_19 <= 12'bx;
+     data_out_20 <= 12'bx;
+     data_out_21 <= 12'bx;
+     data_out_22 <= 12'bx;
+     data_out_23 <= 12'bx;
+     data_out_24 <= 12'bx;
    end else begin
    if(valid_in) begin
      buf_idx <= buf_idx + 1'b1;

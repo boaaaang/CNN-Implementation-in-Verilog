@@ -37,7 +37,7 @@ module conv2_calc_2(
 	  data_out3_15, data_out3_16, data_out3_17, data_out3_18, data_out3_19,
 	  data_out3_20, data_out3_21, data_out3_22, data_out3_23, data_out3_24,
 
-	  output signed [13:0] conv_out_calc,
+	  output reg [13:0] conv_out_calc,
   	output reg valid_out_calc
 );
 
@@ -79,6 +79,7 @@ assign conv_out_calc = calc_out[19:6]; // 14bit
 always @ (posedge clk) begin
 	if(~rst_n) begin
 		valid_out_calc <= 0;
+    conv_out_calc <= 0;
 	end
 	else begin
 		// Toggling Valid Output Signal

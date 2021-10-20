@@ -38,9 +38,32 @@ always @(posedge clk) begin
     buf_idx <= 0;
     delay_cnt <= 0;
     state <= 0;
-  end
+    decision <= 4'd0;
+    cmp1_0 <= 12'd0;
+    cmp1_1 <= 12'd0;
+    cmp1_2 <= 12'd0;
+    cmp1_3 <= 12'd0;
+    cmp1_4 <= 12'd0;
+    cmp2_0 <= 12'd0;
+    cmp2_1 <= 12'd0;
+    cmp2_2 <= 12'd0;
+    cmp3_0 <= 12'd0;
+    cmp3_1 <= 12'd0;
+    max <= 12'd0;
+    buffer[0] <= 12'd0;
+    buffer[1] <= 12'd0;
+    buffer[2] <= 12'd0;
+    buffer[3] <= 12'd0;
+    buffer[4] <= 12'd0;
+    buffer[5] <= 12'd0;
+    buffer[6] <= 12'd0;
+    buffer[7] <= 12'd0;
+    buffer[8] <= 12'd0;
+    buffer[9] <= 12'd0;
+    
+  end else begin
 
-  if(valid_in == 1) begin
+  if(valid_in == 1) begin // read data input
     buffer[buf_idx] <= data_in;
     buf_idx <= buf_idx + 1'b1;
     if(buf_idx == 9) begin
@@ -69,8 +92,10 @@ always @(posedge clk) begin
       cmp3_0 <= (cmp2_0 >= cmp2_1) ? cmp2_0 : cmp2_1;
       cmp3_1 <= cmp2_2;
 
+      //if(delay_cnt == 12'd3)
       max <= (cmp3_0 >= cmp3_1) ? cmp3_0 : cmp3_1;
 
+      //if(delay_cnt == 12'd4) begin
       if(max == buffer[0])
         decision <= 4'd0;
       else if(max == buffer[1])
@@ -91,8 +116,9 @@ always @(posedge clk) begin
         decision <= 4'd8;
       else if(max == buffer[9])
         decision <= 4'd9;
-          
+      //end
     end
+  end
   end
 end
   
