@@ -40,16 +40,28 @@ https://eda.sw.siemens.com/en-US/modelsim-student-edition-unavailable/
 + Learning Rate = 0.01
 + Optimizer = Stochastical Gradient Descent (Momentum = 0.5)
 + Activation Function = ReLU
-
-![image](https://user-images.githubusercontent.com/43449786/137171059-f6d9abc2-dd1f-4d81-a812-ed5cde8c7274.png)
+<img src="https://user-images.githubusercontent.com/43449786/137171059-f6d9abc2-dd1f-4d81-a812-ed5cde8c7274.png" width="500" height="200"/>
 
 학습 결과 96.29%의 적중률을 보였다.
 
-![image](https://user-images.githubusercontent.com/43449786/137170572-42f53f74-4a5c-482a-86f2-8933a9994bf7.png)
+<img src="https://user-images.githubusercontent.com/43449786/137170572-42f53f74-4a5c-482a-86f2-8933a9994bf7.png" width="400" height="200"/>
 
 ## Verilog Design
 
 ### Block Diagram
-![image](https://user-images.githubusercontent.com/43449786/137170969-66a50f9b-7281-498e-aee0-661c4b637e04.png)
+<img src="https://user-images.githubusercontent.com/43449786/137170969-66a50f9b-7281-498e-aee0-661c4b637e04.png" width="700" height="200"/>
+
+### Simulation Waveform
++ Single MNIST dataset input
+단일 MNIST 입력데이터에 대해 100MHz 동작 클럭에서 13335ps에서 인식에 성공하였다. 총 1335 클럭이 소요되었다.
+<img src="https://user-images.githubusercontent.com/43449786/138245457-e8a8b49d-59a5-4394-adf6-c1798ed8c410.png" width="700" height="200"/>
+
++ Multiple random MNIST dataset input
+연속적으로 1,000개의 MNIST 입력데이터를 랜덤하게 입력하였을 때, 1000번 중 920번이 적중하여 92%의 적중률을 갖는다.
+
+<img src="https://user-images.githubusercontent.com/43449786/138245701-95bac4da-c7a7-44f3-b2f5-e2543ea0917b.png" width="700" height="200"/>
+<img src="https://user-images.githubusercontent.com/43449786/138245716-74962ab3-26f1-4da3-aa0a-36156998ce08.png" width="400" height="300"/>
+
+
 
 
