@@ -27,10 +27,6 @@ for image in range(0, 500):
     # create a np array to save the image
     im = np.array(im, dtype='uint8')
     im = im.reshape(28, 28)
-    
-    # display the image
-    # plt.imshow(im, cmap='gray')
-    # plt.show()
 
     np.savetxt("extracted/0_%s.txt" % image, im, fmt = '%02x', delimiter = ' ')
 
